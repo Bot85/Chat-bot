@@ -15,7 +15,7 @@ function ChatBot() {
     if (!OPENAI_API_KEY) {
       setMessages((prev) => [
         ...prev,
-        { sender: "bot", text: "❌ Missing OpenAI API Key in .env file." },
+        { sender: "bot", text: " Missing OpenAI API Key in .env file." },
       ]);
       return;
     }
@@ -56,10 +56,10 @@ function ChatBot() {
 
       setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
     } catch (error) {
-      let errMsg = "⚠️ Something went wrong.";
+      let errMsg = " Something went wrong.";
 
       if (error.message.includes("401")) {
-        errMsg = "🔑 Invalid OpenAI API Key.";
+        errMsg = "Invalid OpenAI API Key.";
       }
 
       setMessages((prev) => [...prev, { sender: "bot", text: errMsg }]);
@@ -82,7 +82,7 @@ function ChatBot() {
         ))}
         {loading && (
           <div className="bot-message text-gray-500 italic animate-pulse">
-            ⏳ Bot is typing...
+             Bot is typing...
           </div>
         )}
       </div>
